@@ -4,25 +4,39 @@
 
 ## プロジェクト概要
 
-不動産アプリ（realestate-app）。
-
-<!-- TODO: 目的・主な機能・想定ユーザーを記載 -->
+不動産アプリ（realestate-app）。Supabase 認証付きの不動産管理 Web アプリ。
+メールアドレス＋パスワードで会員登録・ログインし、ログイン後に物件一覧（現在はダミーデータ）を表示する。
 
 ## 技術スタック
 
-<!-- TODO: 言語 / フレームワーク / DB / ホスティング先などを記載 -->
+- React + Vite（JavaScript）
+- React Router（画面遷移・認証ガード）
+- Supabase（`@supabase/supabase-js`、現在は認証のみ使用）
+- oxlint（Lint）
 
 ## よく使うコマンド
 
-<!-- TODO: プロジェクト作成後に記載 -->
-- 依存関係のインストール: `TODO`
-- 開発サーバー起動: `TODO`
-- テスト実行: `TODO`
-- Lint / フォーマット: `TODO`
+- 依存関係のインストール: `npm install`
+- 開発サーバー起動: `npm run dev`
+- ビルド: `npm run build`
+- Lint: `npm run lint`
+- テスト: 未設定
+
+## 環境変数
+
+Supabase の接続情報は `.env` で管理する（`.gitignore` 済み・コミット禁止）。テンプレートは `.env.example`。
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
 
 ## ディレクトリ構成
 
-<!-- TODO: 主要ディレクトリと役割を記載 -->
+- `src/lib/supabaseClient.js` — Supabase クライアント
+- `src/contexts/` — 認証状態（セッション）を提供する AuthProvider
+- `src/hooks/useAuth.js` — 認証状態を取得するフック
+- `src/components/` — ProtectedRoute（要ログイン）/ PublicRoute（未ログイン専用）
+- `src/pages/` — ログイン・会員登録・物件一覧の各画面
+- `src/data/properties.js` — 物件のダミーデータ
 
 ## Git 運用ルール
 
@@ -41,4 +55,5 @@
 
 ## コーディング規約
 
-<!-- TODO: 命名規則、フォーマッタ設定、コメント方針などを記載 -->
+- コメントは日本語で記載する。
+- コンポーネントは関数コンポーネント＋名前付きエクスポートで書く（`App.jsx` のみ default export）。

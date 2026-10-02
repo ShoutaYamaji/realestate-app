@@ -1,0 +1,182 @@
+/* 全体の基本スタイル */
+:root {
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-text: #1f2933;
+  --color-muted: #6b7280;
+  --color-border: #d9dde3;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-error: #dc2626;
+  --color-notice: #047857;
+
+  font-family: system-ui, -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 40vh;
+  color: var(--color-muted);
+}
+
+/* ログイン・会員登録画面 */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.auth-form h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.auth-form input {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.message {
+  margin: 0;
+  font-size: 14px;
+}
+
+.message.error {
+  color: var(--color-error);
+}
+
+.message.notice {
+  color: var(--color-notice);
+}
+
+.switch-link {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.switch-link a {
+  color: var(--color-primary);
+}
+
+/* 物件一覧画面 */
+.property-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.property-card {
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.property-card h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.property-card .rent {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.property-card .rent span {
+  font-size: 13px;
+  font-weight: normal;
+  color: var(--color-muted);
+}
+
+.property-card .area {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-muted);
+}
