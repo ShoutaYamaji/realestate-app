@@ -5,13 +5,13 @@
 ## プロジェクト概要
 
 不動産アプリ（realestate-app）。Supabase 認証付きの不動産管理 Web アプリ。
-メールアドレス＋パスワードで会員登録・ログインし、ログイン後に物件一覧（現在はダミーデータ）を表示する。
+メールアドレス＋パスワードで会員登録・ログインし、ログイン後に自分の物件を一覧・登録・編集・削除できる。
 
 ## 技術スタック
 
 - React + Vite（JavaScript）
 - React Router（画面遷移・認証ガード）
-- Supabase（`@supabase/supabase-js`、現在は認証のみ使用）
+- Supabase（`@supabase/supabase-js`、認証と `properties` テーブルの CRUD）
 - oxlint（Lint）
 
 ## よく使うコマンド
@@ -31,12 +31,20 @@ Supabase の接続情報は `.env` で管理する（`.gitignore` 済み・コ�
 
 ## ディレクトリ構成
 
+- `supabase/migrations/` — テーブル作成・RLS ポリシーの SQL（Supabase の SQL Editor で手動実行する）
 - `src/lib/supabaseClient.js` — Supabase クライアント
+- `src/lib/propertiesApi.js` — `properties` テーブルの CRUD 関数
 - `src/contexts/` — 認証状態（セッション）を提供する AuthProvider
 - `src/hooks/useAuth.js` — 認証状態を取得するフック
-- `src/components/` — ProtectedRoute（要ログイン）/ PublicRoute（未ログイン専用）
+- `src/components/` — ProtectedRoute（要ログイン）/ PublicRoute（未ログイン専用）/ PropertyForm（物件の登録・編集フォーム）
 - `src/pages/` — ログイン・会員登録・物件一覧の各画面
-- `src/data/properties.js` — 物件のダミーデータ
+
+## データベース
+
+- `properties` テーブル：物件名 `name`・家賃 `rent`（円）・エリア名 `area`・間取り `layout`・登録者 `user_id`
+- `user_id` は DB の既定値 `auth.uid()` で自動設定されるため、React 側からは送らない。
+- RLS 有効。自分が登録した物件のみ表示・登録・編集・削除できる。
+- スキーマを変更する場合は `supabase/migrations/` に連番の SQL ファイルを追加する。
 
 ## Git 運用ルール
 

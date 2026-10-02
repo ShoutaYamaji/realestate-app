@@ -180,3 +180,88 @@ button:disabled {
   font-size: 14px;
   color: var(--color-muted);
 }
+
+/* ボタンのバリエーション */
+button.secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: var(--color-bg);
+}
+
+button.danger {
+  background: var(--color-error);
+}
+
+button.danger:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+/* 物件の登録・編集フォーム */
+.create-section {
+  margin-bottom: 24px;
+}
+
+.panel {
+  max-width: 480px;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.panel h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.property-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.property-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.property-form input {
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.form-actions,
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.card-actions {
+  margin-top: 16px;
+}
+
+.card-actions button {
+  padding: 6px 14px;
+  font-size: 14px;
+}
+
+.property-card .layout {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--color-bg);
+  font-size: 13px;
+}
+
+.empty {
+  color: var(--color-muted);
+}
