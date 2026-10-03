@@ -29,6 +29,11 @@ Supabase の接続情報は `.env` で管理する（`.gitignore` 済み・コ�
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_PUBLISHABLE_KEY`
 
+## デプロイ
+
+- Vercel にデプロイする。`vercel.json` で全パスを `index.html` にリライトし、React Router の画面を直接開いたりリロードしたりしても 404 にならないようにしている。
+- 環境変数（`VITE_SUPABASE_URL` など）は Vercel ダッシュボードで設定する。`vercel.json` には含めない。
+
 ## ディレクトリ構成
 
 - `supabase/migrations/` — テーブル作成・RLS ポリシーの SQL（Supabase の SQL Editor で手動実行する）
